@@ -1,0 +1,189 @@
+
+<html>
+
+<head>
+	<title>Diseases - Plants</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- <link rel="stylesheet" href="assets/css/main.css" /> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	{% load static %}
+	<link rel="stylesheet" href="{% static "plant_app/main.css" %}">
+	<link rel="stylesheet" href="{% static "plant_app/style.css" %}">
+	<link rel="stylesheet" href="{% static "plant_app/bootstrap.min.css" %}">
+	{% load staticfiles %} 
+
+
+</head>
+
+<body>
+
+
+
+	<!-- Main -->
+	<section id="main">
+
+
+		<div class="container" style="background-color: antiquewhite;">
+			<br>
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<!-- <li data-target="#myCarousel" data-slide-to="2"></li>
+					<li data-target="#myCarousel" data-slide-to="3"></li> -->
+				</ol>
+
+
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src={% static "plant_app/images/Potato-leaf-blight.jpg" %}
+							alt="Blight" style="width:100%; height:300px">
+					</div>
+
+					<!-- <div class="item">
+						<img src={% static "plant_app/images/download.jfif" %}
+							alt="Blight" style="width:100%; height:300px"> -->
+
+					<div class="item">
+						<img src={% static "plant_app/images/download (1).jfif" %}
+							alt="Blight" style="width:100%; height:300px">
+					</div>
+
+					<!-- <div class="item">
+						<img src={% static "plant_app/images/Bacterial-spot-symptoms-on-pepper-leaves-for-web.jpg" %}
+							alt="Blight" style="width:100%; height:300px">
+					</div> -->
+
+				</div>
+
+				<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+
+			<div class="inner">
+				<div class="wrapper style1">
+					<div class="content">
+						<div class="row 200%">
+							<div class="6u 12u$(medium)" align="justify">
+
+								<br>
+								<h2>Hello, Welcome!</h2>
+								<p style="font-size: large;"><br>Crop cultivation plays an essential role in the
+									agricultural field. Presently, the loss of food is mainly
+									due to infected crops, which reflexively reduces the
+									production rate. To identify the plant diseases at an
+									untimely phase is not yet explored. The main challenge
+									is to reduce the usage of pesticides in the agricultural
+									field and to increase the quality and quantity of the
+									production rate. Our project is used to explore the leaf
+									disease prediction at an untimely action. </p><br>
+								<hr />
+
+
+								<br>
+								<h4>The concept of image processing
+									with data mining technologies assists us in following
+									purposes: </h4><br>
+								<div class="row">
+									<div class="12u 12u$(small)">
+										<ul style="font-size: large;">
+											<li>Recognizing infected leaf and stem </li>
+											<li>Measure the affected area</li>
+											<li>Finding the shape of the infected region </li>
+											<li>Determine the color of infected region</li>
+											<li>Influence the size and shape of the leaf</li>
+										</ul>
+										<br>
+										<hr \>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="6u$ 12u$(medium)" align="justify">
+
+								<br>
+								<h2>How do we intend to do it?</h2><br>
+								<p style="font-size: medium;">We propose an algorithm to predict the
+									infected area of the leaves. A color based segmentation
+									model is defined to segment the infected region and
+									placing it to its relevant classes. Plant
+									diseases can be detected by image processing technique.
+									Disease detection involves steps like image acquisition,
+									image pre-processing, image segmentation, feature
+									extraction and classification. Our project is used to
+									detect the plant diseases and provide solutions to recover
+									from the disease. It shows the affected part of the leaf in
+									percentage.
+								</p>
+								<hr \>
+
+								<br>
+								<p style="font-size: large;">The user is to select a particular diseased region in a
+									leaf
+									and the cropped image is sent for processing .This
+									project intends to study about the prediction of the plant
+									diseases, at an untimely phase using k-mean clustering
+									algorithm. Specifically, we concentrate on predicting the
+									disease such as Blights, Mosaic Virus, Bacterial Spots, Common Rust etc. It would be
+									useful for identifying different diseases on crops .It
+									provides various methods used to study crop
+									diseases/traits using image processing and data mining.
+									In addition, the infected area and affected percentage is
+									also measured.</p>
+								<hr \>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="position: relative;" align="center">
+				<form method="post" id="fileform" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="file-upload">
+						<div class="file-select">
+							<div class="file-select-button" id="fileName">Choose File</div>
+							<div class="file-select-name" id="noFile">No file chosen...</div>
+							<input id="chooseFile" type="file" name="myfile">
+						</div>
+					</div><br><br>
+					<button id="sub" class="btn btn-success btn-lg" type="submit">Predict</button>
+				</form>
+				{% if file_url %}
+				<div id='filename' align="justify" style="font-size: medium;">Treatment for {{ result }}</div>
+				<img src="data:image/png;base64,{{file_url}}" style="width:450px;height:450px;">
+				{% endif %}
+
+			</div> <br><br>
+		</div>
+
+
+	</section>
+
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="copyright">
+			&copy; All rights reserved.
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.poptrox.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
