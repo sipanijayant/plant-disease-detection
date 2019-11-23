@@ -5,6 +5,8 @@ to download the pretrained model refer this link : [https://drive.google.com/ope
 ]
 
 <br>
+     place the pretrained model along with the  views.py  folder
+<br>
 dataset used for training the model :
 Plant Village Dataset
 https://www.kaggle.com/emmarex/plantdisease
